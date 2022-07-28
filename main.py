@@ -36,6 +36,16 @@ async def update_shoe(id: int, body: dict) -> dict:
     }
 
 
+#Delete --> deleteting data
+@app.delete("/shoe/{id}", tag = ["shoes"])
+async def delete_shoe(id: int) -> dict:
+    for int in shoes:
+        shoes.remove(shoes)
+        return {"data": f"shoe has been deleted" } or {"data": f"shoe with id {id} has been deleted. "}
+        return{
+            "data":f"this shoe with id {id} was not found"
+        }
+
 
 
 shoes = [
@@ -49,3 +59,7 @@ shoes = [
     }
 
 ]
+
+
+
+
