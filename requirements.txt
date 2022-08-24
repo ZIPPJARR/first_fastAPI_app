@@ -1,0 +1,10 @@
+remeber to pip intall fast api and uvicornn
+then use this fastapi scheme to run a file using fastapi:
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/", tags = ["ROOT"])
+async def root() -> dict:
+    return{"Hello": "world"}

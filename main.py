@@ -1,4 +1,6 @@
+
 from fastapi import FastAPI
+
 
 app = FastAPI()
 
@@ -6,20 +8,19 @@ app = FastAPI()
 async def root() -> dict:
     return{"Hello": "world"}
 
-
+shoes = []
 
 #get --> shoes list with brand name
-@app.get("/shoe", tags = ["shoes"])
+@app.get("/shoe/", tags = ["shoes"])
 async def get_shoe() -> dict:
     return{"data": shoes}
-
-
+   
 # post --> create new brand
 @app.post("/shoe", tags = ["shoes"])
 async def add_shoe(shoe:dict) -> dict:
-    shoes.append(shoe)
-    return{"data": "A Brand has been added !"}
-
+        shoes.append(shoe)
+        return{"data": "A Brand has been added !"}
+        
 
 # put --> update brand
 @app.put("/shoe/{id}", tags = ["shoes"])
@@ -42,23 +43,13 @@ async def delete_shoe(id: int) -> dict:
     for shoe in shoes:
         shoes.remove(shoe)
         return {"data": f"shoe has been deleted" } or {"data": f"shoe with id {id} has been deleted. "}
-        return{
-            "data":f"this shoe with id {id} was not found"
-        }
+       
 
 
 
-shoes = [
-    {
-        "id": "1",
-    "Brand": "Jordan"
-    },
-    {
-        "id": "2",
-        "Brand": "NIKE"
-    }
 
-]
+
+
 
 
 
