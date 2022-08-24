@@ -9,7 +9,6 @@ async def root() -> dict:
     return{"Hello": "world"}
 
 shoes = []
-
 #get --> shoes list with brand name
 @app.get("/shoe/", tags = ["shoes"])
 async def get_shoe() -> dict:
